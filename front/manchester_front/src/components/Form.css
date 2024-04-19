@@ -1,0 +1,32 @@
+.main-container {
+    
+     background-color: white;
+     width: 400px;
+     height: 400px;
+     border-radius: 5px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding-top: 30px;
+}
+
+form{
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-div{
+display: flex;
+justify-content: space-between;
+gap: 10px;
+margin-bottom: 15px;
+}
+
+.submit{
+    padding: 20px;
+}
+
+.button{
+    padding: 10px;
+}
