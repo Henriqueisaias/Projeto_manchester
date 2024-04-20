@@ -1,4 +1,4 @@
-package br.com.projetoa3.projetoa3;
+package br.com.projetoa3;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

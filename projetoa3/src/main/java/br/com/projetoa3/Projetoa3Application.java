@@ -1,4 +1,4 @@
-package br.com.projetoa3.projetoa3;
+package br.com.projetoa3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
