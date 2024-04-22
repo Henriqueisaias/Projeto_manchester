@@ -29,4 +29,18 @@ public class PacientesController {
           List<PacientesResponseDTO> pacientesList = repository.findAll().stream().map(PacientesResponseDTO::new).toList();
              return pacientesList;
         }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @DeleteMapping
+        public void deletaPaciente(@RequestBody PacientesRequestDTO data){
+          Pacientes pacientesData = new Pacientes(data);
+           repository.delete(pacientesData);
+        }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PutMapping
+          public void atualizaPaciente(@RequestBody PacientesRequestDTO data){
+            Pacientes pacientesData = new Pacientes(data);
+            repository.save(pacientesData);
+         } 
 }
