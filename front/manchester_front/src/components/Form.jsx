@@ -1,23 +1,22 @@
-import  "./Form.css"
-import { useState } from "react"
+import styles from "./Form.module.css"
+// import { useState } from "react"
 
 export const Form = () => {
 
    
 
-
     return (
-        <div className="main-container">
+        <div className={styles.mainContainer}>
             <form action="">
-                <div className="input-div">
+                <div className={styles.inputDiv}>
                     <label htmlFor="name">Nome do paciente:</label>
-                    <input type="text" name="name" placeholder="Exemplo: João da silva"/>
+                    <input type="text" name="name" placeholder="Exemplo: João da silva" required/>
                 </div>
-                <div className="input-div">
+                <div className={styles.inputDiv}>
                     <label htmlFor="age">Idade do paciente:</label>
-                    <input type="Number" name="age" placeholder="Exemplo: 29 anos" min={1}/>
+                    <input type="Number" name="age" placeholder="Exemplo: 29 anos" min={1} required/>
                 </div>
-                <div className="submit"><input className="button" type="submit" value={"Cadastra paciente"} max={150}/></div>
+                <div className={styles.submit}><input className={styles.button} type="submit" value={"Cadastrar paciente"} max={150}/></div>
             </form>
         </div>
     )

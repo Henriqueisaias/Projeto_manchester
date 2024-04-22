@@ -1,8 +1,12 @@
-.main-container {
-    
+
+*{
+    font-family: sans-serif;
+}
+
+.mainContainer {
+
      background-color: white;
-     width: 400px;
-     height: 400px;
+     width: 100%;
      border-radius: 5px;
      display: flex;
      flex-direction: column;
@@ -14,19 +18,29 @@ form{
     color: black;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.input-div{
+.inputDiv{
 display: flex;
 justify-content: space-between;
-gap: 10px;
+gap: 15px;
 margin-bottom: 15px;
 }
+
+  
 
 .submit{
     padding: 20px;
 }
 
 .button{
+    background-color: #0b9c39;
+    color: white; 
+    font-size: 16px;
+    border-radius: 10px;
     padding: 10px;
+    cursor: pointer;
+    outline: none;
 }
+
