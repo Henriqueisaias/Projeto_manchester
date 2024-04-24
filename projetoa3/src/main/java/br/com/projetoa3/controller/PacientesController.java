@@ -39,8 +39,8 @@ public class PacientesController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping
-          public void atualizaPaciente(@RequestBody PacientesRequestDTO data){
+          public Pacientes atualizaPaciente(@RequestBody PacientesRequestDTO data){
             Pacientes pacientesData = new Pacientes(data);
-            repository.save(pacientesData);
+            return repository.save(pacientesData);
          } 
 }
