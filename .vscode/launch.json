@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Projetoa3Application",
+            "request": "launch",
+            "mainClass": "br.com.projetoa3.Projetoa3Application",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Projetoa3Application<projetoa3>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

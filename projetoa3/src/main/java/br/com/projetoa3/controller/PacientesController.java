@@ -1,46 +1,54 @@
 package br.com.projetoa3.controller;
 
-import br.com.projetoa3.dto.PacientesRequestDTO;
-import br.com.projetoa3.dto.PacientesResponseDTO;
-import br.com.projetoa3.repository.ManchesterRepository;
-import br.com.projetoa3.entity.Pacientes;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.projetoa3.dto.PacientesDTO;
+import br.com.projetoa3.service.PacienteService;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/pacientes")
 public class PacientesController {
-    @Autowired
-    private ManchesterRepository repository;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    private PacienteService service;
+
     @PostMapping
-    public void cadastrarPaciente(@RequestBody PacientesRequestDTO data){
-       Pacientes pacientesData = new Pacientes(data);
-       repository.save(pacientesData);
-       return;
+    public ResponseEntity<PacientesDTO> createPacientes(@RequestBody PacientesDTO pacientesDTO) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataEntradaFormatada = LocalDateTime.now().format(formatter);
+        pacientesDTO.setDataEntrada(LocalDateTime.parse(dataEntradaFormatada, formatter));
+        PacientesDTO savePacientes = service.createPaciente(pacientesDTO);
+        return new ResponseEntity<>(savePacientes, HttpStatus.CREATED);
     }
-    
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+
+    @GetMapping("{id}")
+    public ResponseEntity<PacientesDTO> getPacienteById(@PathVariable("id") Long pacienteId) {
+        PacientesDTO pacientesDTO = service.getPacienteById(pacienteId);
+        return ResponseEntity.ok(pacientesDTO);
+
+    }
+
     @GetMapping
-        public List<PacientesResponseDTO> getAll(){
+    public ResponseEntity<List<PacientesDTO>> getAllPacientes() {
+        List<PacientesDTO> allPacientes = service.getAllPacientes();
+        return ResponseEntity.ok(allPacientes);
+    }
 
-          List<PacientesResponseDTO> pacientesList = repository.findAll().stream().map(PacientesResponseDTO::new).toList();
-             return pacientesList;
-        }
-
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @DeleteMapping
-        public void deletaPaciente(@RequestBody PacientesRequestDTO data){
-          Pacientes pacientesData = new Pacientes(data);
-           repository.delete(pacientesData);
-        }
-
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PutMapping
-          public Pacientes atualizaPaciente(@RequestBody PacientesRequestDTO data){
-            Pacientes pacientesData = new Pacientes(data);
-            return repository.save(pacientesData);
-         } 
+    @PutMapping("{id}")
+    public ResponseEntity<PacientesDTO> updatePacientes(@PathVariable("id") Long pacienteId,
+                                                        @RequestBody PacientesDTO updatePacientes){
+        PacientesDTO pacientesDTO = service.updatePacientes(pacienteId,updatePacientes);
+        return ResponseEntity.ok(pacientesDTO);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deletePaciente(@PathVariable("id") Long pacienteID){
+        service.deletePaciente(pacienteID);
+        return ResponseEntity.ok("Paciente receitado com sucesso!");
+    }
 }

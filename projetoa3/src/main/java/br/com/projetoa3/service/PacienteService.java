@@ -1,10 +1,19 @@
 
 package br.com.projetoa3.service;
 
-import br.com.projetoa3.dto.PacientesRequestDTO;
-import br.com.projetoa3.dto.PacientesResponseDTO;
+import br.com.projetoa3.dto.PacientesDTO;
+
+import java.util.List;
 
 public interface PacienteService {
-    PacientesResponseDTO createPaciente(PacientesRequestDTO pacientesRequestDTO); 
+    PacientesDTO createPaciente(PacientesDTO pacientesDTO);
+
+    PacientesDTO getPacienteById(Long pacienteId);
+
+    List<PacientesDTO> getAllPacientes();
+
+    PacientesDTO updatePacientes(Long pacienteId, PacientesDTO updatePacientes);
+
+    void deletePaciente(Long pacienteID);
 
 }

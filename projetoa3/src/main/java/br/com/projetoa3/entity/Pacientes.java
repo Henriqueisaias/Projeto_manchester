@@ -1,8 +1,11 @@
 package br.com.projetoa3.entity;
 
-import br.com.projetoa3.dto.PacientesRequestDTO;
+//import br.com.projetoa3.dto.PacientesDTO;
+//import br.com.projetoa3.dto.PacientesRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -22,17 +25,24 @@ public class Pacientes {
     @Column(name = "idade_do_paciente")
     private Integer idade;
 
-    @Column(name = "pressao_do_paciente")
-    private String pressao;
+    @Column(name = "sintomas_do_paciente")
+    private String sintomas;
 
-    @Column(name = "temperatura_do_paciente")
-    private String temperatura;
+    @Column(name = "data_de_entrada")
+    private LocalDateTime dataEntrada;
 
-    public  Pacientes(PacientesRequestDTO data){
-        this.nome = data.nome();
-        this.idade = data.idade();
-        this.pressao = data.pressao();
-        this.temperatura = data.temperatura();
-    }
+    @Column(name = "data_de_saida")
+    private LocalDateTime dataSaida;
+
+    @Column(name = "remedios_receitados")
+    private String remediosReceitados;
+
+
+//    public  Pacientes(PacientesDTO data){
+//        this.nome = data.nome();
+//        this.idade = data.idade();
+//        this.pressao = data.pressao();
+//        this.sintomas = data.sintomas();
+//    }
 
 }
