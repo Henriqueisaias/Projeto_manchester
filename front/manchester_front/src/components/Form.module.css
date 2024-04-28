@@ -35,6 +35,20 @@ margin-bottom: 15px;
     padding: 20px;
 }
 
+.radio{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.radioContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+
 .button{
     background-color: #0b9c39;
     color: white; 
@@ -43,6 +57,10 @@ margin-bottom: 15px;
     padding: 10px;
     cursor: pointer;
     outline: none;
+}
+
+.sintomas{
+    margin-top: 20px;
 }
 
 .button{
