@@ -16,10 +16,14 @@ export const Form = () => {
                     <label htmlFor="age">Idade do paciente:</label>
                     <input type="Number" name="age" placeholder="Exemplo: 29 anos" min={1} required/>
                 </div>
+<<<<<<< Updated upstream
                 <div className={styles.submit}><input className={styles.button} type="submit" value={"Cadastrar paciente"} max={150}/>
                 <label htmlFor="risco"><input type="radio" value="alto"/></label>
                 
                 </div>
+=======
+                <div className={styles.submit}><button className={styles.button}>cadastrar paciente</button></div>
+>>>>>>> Stashed changes
             </form>
         </div>
     )

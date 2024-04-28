@@ -1,0 +1,6 @@
+br\com\projetoa3\dto\PacientesResponseDTO.class
+br\com\projetoa3\Projetoa3Application.class
+br\com\projetoa3\entity\Pacientes.class
+br\com\projetoa3\controller\PacientesController.class
+br\com\projetoa3\dto\PacientesRequestDTO.class
+br\com\projetoa3\repository\ManchesterRepository.class

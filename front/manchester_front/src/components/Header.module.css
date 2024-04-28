@@ -1,9 +1,9 @@
 .header{
     font-family: Anton;
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: white;
     font-weight: bold;
-    background-image: linear-gradient(to right, #24c156,#07631c, #055e13,  #023a0b );
+    background-image: linear-gradient(to bottom,  #1ac55c,#0b8f56,#0a9039 );
     width: 100%;
     height: 110px;
     margin: 0;
@@ -31,8 +31,9 @@
 }
 
 .header nav ul li:hover{
-    background-color: aquamarine;
-    color: #363535;
-    transition: 0.4s;
+    background-color: rgb(249, 249, 249);
+    color: #0b8f56;
+    transition: 0.3s;
     cursor: pointer;
 }
+
