@@ -1,0 +1,39 @@
+#spring.datasource.url=jdbc:postgresql://localhost:5432/projeto_manchester
+#spring.datasource.username=postgres
+#spring.datasource.password=root
+#
+#spring.jpa.hibernate.ddl-auto=update
+spring:
+
+    datasource:
+        url: jdbc:h2:mem:pacientes
+        driverClassName: org.h2.Driver
+        username: sa
+        password:
+
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        properties.hibernate.show_sql: true
+        properties.hibernate.format_sql: true
+
+    h2:
+        console:
+            enabled: true
+            path: /h2
+
+
+
+
+
+
+#
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+#spring.jpa.hibernate.ddl-auto=none
+#spring.jpa.hibernate.show-sql=true
+#spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+#
+#
+#spring.datasource.initialization-mode=always
+#spring.datasource.initialize=true
+#spring.datasource.schema=classpath:/schema.sql
+#spring.datasource.continue-on-error=true

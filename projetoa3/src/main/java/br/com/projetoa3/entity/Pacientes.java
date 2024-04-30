@@ -5,18 +5,17 @@ package br.com.projetoa3.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "pacientes")
-@EqualsAndHashCode(of = "id")
-public class Pacientes {
+public class Pacientes implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "nome_do_paciente")
