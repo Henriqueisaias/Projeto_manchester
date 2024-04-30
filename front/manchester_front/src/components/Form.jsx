@@ -1,36 +1,65 @@
 import styles from "./Form.module.css";
 import { useState } from "react"
 import PostRequest from "../hooks/PostRequest.js"
+// import { useEffect } from "react";
 
 export const Form = () => {
 
-    const [paciente, setPaciente] = useState({nome:"", idade: 0, risco:"", sintomas: ""})
+ 
+
+  const [nome, setNome] = useState("")
+  const [idade, setIdade] = useState(0)
+  const [risco, setRisco] = useState("emergencia")
+  const [sint, setSint] = useState("")
+
+
+  const resetForm = () => {
+
+    setNome("")
+    setIdade(0)
+    setRisco("emergencia")
+    setSint("")
+  }
+
+    let paciente = useState({nome:"", idade: 0, risco:"", sintomas: ""});
+
+    // useEffect(()=> {
+    //   console.log(paciente)
+    // },[paciente])
+  
 
     const handleName = (e) => {
-        setPaciente({...paciente, nome: e.target.value})
-        console.log(paciente.nome)
+        setNome(e.target.value);
+        // console.log(nome);
     }
-    const handleAge = (e) => {
-        setPaciente ( {...paciente, idade: e.target.value})
-        console.log(paciente.idade)
+    const handleIdade = (e) => {
+        setIdade(e.target.value);
+        // console.log(idade);
     }
     const handleRisc = (e) => {
-        setPaciente({...paciente, risco: e.target.value})
-        console.log(paciente.risco)
+        setRisco(e.target.value)
+        // console.log(risco)
     }
     const handleSint = (e) => {
-       setPaciente({...paciente, sintomas: e.target.value})
-        console.log(paciente.sintomas)
+       setSint(e.target.value)
+        // console.log(sint)
     }
 
 
 const enviar = (e) => {
 e.preventDefault();
 
-const url = 'aqui voce põe a url'
+paciente = {nome:nome, idade:idade, risco:risco, sintomas:sint}
+
+
+
+const url = "http://localhost:8080/pacientes"
+
 PostRequest(paciente, url);
 
-setPaciente({nome:"", idade: 0, risco:"", sintomas: ""})
+
+resetForm();
+
 
 }
 
@@ -41,21 +70,23 @@ setPaciente({nome:"", idade: 0, risco:"", sintomas: ""})
         <div className={styles.inputDiv}>
           <label htmlFor="name">Nome do paciente:</label>
           <input
-            onChange={(e) => handleName(e)}
+           onChange={(e) => handleName(e)}
             type="text"
             name="name"
             placeholder="Exemplo: João da silva"
+            value={nome}
             required
           />
         </div>
         <div className={styles.inputDiv}>
           <label htmlFor="age">Idade do paciente:</label>
           <input
-          onChange={(e) => handleAge(e)}
+          onChange={(e) => handleIdade(e)}
             type="number"
             name="age"
             placeholder="Exemplo: 29 anos"
             min={1}
+            value={idade}
             required
           />
         </div>
@@ -86,11 +117,11 @@ setPaciente({nome:"", idade: 0, risco:"", sintomas: ""})
           </div>
         </div>
         <div className={styles.sintomas}>
-            <textarea onChange={(e) => handleSint(e)} name="sintomas" cols="30" rows="10" placeholder="Sintomas do paciente...."></textarea>
+            <textarea onChange={(e) => handleSint(e)} name="sintomas" cols="30" rows="10" value={sint} placeholder="Sintomas do paciente...."></textarea>
         </div>
 
         <div className={styles.submit}>
-          <button onClick={ (e) => enviar(e)} className={styles.button}>cadastrar paciente</button>
+          <input type="submit" onClick={ (e) => enviar(e)} className={styles.button} value={"Cadastrar"}/>
         </div>
       </form>
     </div>
