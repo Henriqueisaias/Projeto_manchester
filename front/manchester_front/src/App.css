@@ -14,7 +14,7 @@ main{
 .main-container{
   margin: 0 auto;
   width: 600px;
-  height: 900px;
+  min-height: 900px;
   display: flex;
   flex-direction: column;
   background-color: white;

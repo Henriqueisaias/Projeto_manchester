@@ -1,0 +1,28 @@
+*{
+    font-family: sans-serif;
+}
+
+.paciente{
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.432);
+    border-radius: 5px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.paciente:first-child{
+    margin-top: 50px;
+}
+
+.user{
+    margin-right: 20px;
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
