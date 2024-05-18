@@ -18,5 +18,5 @@ public class PacientesDTO {
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
     private String remediosReceitados;
-
+    private String risco;
 }

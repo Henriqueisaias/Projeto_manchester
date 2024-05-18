@@ -37,6 +37,10 @@ public class Pacientes {
     @Column(name = "remedios_receitados")
     private String remediosReceitados;
 
+    @Column(name = "risco")
+    private String risco;
+
+
 
 //    public  Pacientes(PacientesDTO data){
 //        this.nome = data.nome();

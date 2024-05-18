@@ -18,6 +18,7 @@ public class PacientesController {
 
     private PacienteService service;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public ResponseEntity<PacientesDTO> createPacientes(@RequestBody PacientesDTO pacientesDTO) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -27,25 +28,27 @@ public class PacientesController {
         return new ResponseEntity<>(savePacientes, HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("{id}")
     public ResponseEntity<PacientesDTO> getPacienteById(@PathVariable("id") Long pacienteId) {
         PacientesDTO pacientesDTO = service.getPacienteById(pacienteId);
         return ResponseEntity.ok(pacientesDTO);
 
     }
-
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public ResponseEntity<List<PacientesDTO>> getAllPacientes() {
         List<PacientesDTO> allPacientes = service.getAllPacientes();
         return ResponseEntity.ok(allPacientes);
     }
-
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("{id}")
     public ResponseEntity<PacientesDTO> updatePacientes(@PathVariable("id") Long pacienteId,
                                                         @RequestBody PacientesDTO updatePacientes){
         PacientesDTO pacientesDTO = service.updatePacientes(pacienteId,updatePacientes);
         return ResponseEntity.ok(pacientesDTO);
     }
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("{id}")
     public ResponseEntity<String> deletePaciente(@PathVariable("id") Long pacienteID){
         service.deletePaciente(pacienteID);
