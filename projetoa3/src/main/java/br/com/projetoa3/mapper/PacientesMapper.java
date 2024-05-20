@@ -15,8 +15,7 @@ public class PacientesMapper {
                 pacientes.getSintomas(),
                 pacientes.getDataEntrada(),
                 pacientes.getDataSaida(),
-                pacientes.getRemediosReceitados(),
-                pacientes.getRisco()
+                pacientes.getRemediosReceitados()
         );
     }
 
@@ -28,8 +27,7 @@ public class PacientesMapper {
                 pacientesDTO.getSintomas(),
                 pacientesDTO.getDataEntrada(),
                 pacientesDTO.getDataSaida(),
-                pacientesDTO.getRemediosReceitados(),
-                pacientesDTO.getRisco()
+                pacientesDTO.getRemediosReceitados()
         );
     }
 }

@@ -15,5 +15,4 @@ public interface PacienteService {
     PacientesDTO updatePacientes(Long pacienteId, PacientesDTO updatePacientes);
 
     void deletePaciente(Long pacienteID);
-
 }
