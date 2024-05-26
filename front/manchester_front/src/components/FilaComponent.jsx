@@ -3,6 +3,9 @@ import Paciente from "./Paciente"
 import styles from "./FilaComponent.module.css"
 
 const dados = {
+
+
+
     "fila": [
         [
             {"nome": "João", "idade": 25, "risco": "emergência", "sintomas": "febre"},
@@ -37,6 +40,7 @@ export const FilaComponent = () => {
     return (
         <div>
            <h1 className={styles.title}>Fila de pacientes</h1>
+           <p>Paciente atual: </p>
            {dados.fila.map((pacientesArray, index) => (<div key={index}>
                {pacientesArray.map((paciente, idx) => (<Paciente key={idx} data={paciente}/>))}
            </div>))}
