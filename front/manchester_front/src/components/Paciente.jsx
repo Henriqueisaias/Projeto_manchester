@@ -2,6 +2,7 @@
 import styles from './Paciente.module.css'
 import {FaUser} from 'react-icons/fa'
 
+
 function Paciente({data}) {
 
     let corIcone ='';
@@ -29,7 +30,7 @@ function Paciente({data}) {
             <div className={styles.dados} >
                 <h3>Nome: {data.nome}</h3>
                 <p>Idade: {data.idade} anos</p>
-                <p>Risco: {data.risco}</p>
+                <p>Risco: {data.grauRisco}</p>
             </div>
         </div>
     )
