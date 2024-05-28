@@ -1,5 +1,9 @@
 package br.com.projetoa3.dto;
 
+import br.com.projetoa3.exception.LocalDateTimeDeserializer;
+import br.com.projetoa3.exception.LocalDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +19,11 @@ public class PacientesDTO {
     private String nome;
     private Integer idade;
     private String sintomas;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime dataEntrada;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime dataSaida;
     private String remediosReceitados;
 }
