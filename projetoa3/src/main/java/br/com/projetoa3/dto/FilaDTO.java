@@ -8,6 +8,8 @@ import lombok.*;
 public class FilaDTO {
     private Long id;
     private Long pacienteId;
+    private String nomePaciente;
+    private String sintomasPaciente;
     private String grauRisco;
     private Integer posicao;
     private Integer prioridade;

@@ -88,6 +88,13 @@ public class FilaServiceImpl implements FilaService {
         filaDTO.setGrauRisco(fila.getGrauRisco());
         filaDTO.setPrioridade(getPrioridade(fila.getGrauRisco()));
         filaDTO.setPosicao(fila.getPosicao());
+
+    //Método para pegar o nome do paciente e sintomas
+        Pacientes pacientes = manchesterRepository.findById(fila.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado com o ID:" + fila.getId()));
+        filaDTO.setNomePaciente(pacientes.getNome());
+        filaDTO.setSintomasPaciente(pacientes.getSintomas());
+
         return filaDTO;
     }
 
