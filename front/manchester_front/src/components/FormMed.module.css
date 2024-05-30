@@ -12,11 +12,16 @@
 }
 
 textarea{
-  width : 90%;
+  width : 500px;
   margin-top: 30px;
-  height: 150px
+  height: 150px;
+  margin-bottom: 30px;
 }
 
 .atual{
     margin-top: 30px;
+}
+
+h2{
+  margin-bottom: 20px;
 }

@@ -22,9 +22,10 @@ function App() {
       <Header />
       <div className='main-container'>
         <Routes>
-          <Route path="/form" element={<Form/>} />
-          <Route path="/fila" element={<FilaComponent/>} />
-          <Route path="/historico" element={<Historico/>} />
+        <Route path="/" element={<Form />} />
+        <Route path="/form" element={<Form/>} />
+        <Route path="/fila" element={<FilaComponent/>} />
+        <Route path="/historico" element={<Historico/>} />
         </Routes>
       </div>
     </main>

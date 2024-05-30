@@ -23,10 +23,6 @@ export const Form = () => {
 
     let paciente = useState({nome:"", idade: 0, risco:"", sintomas: ""});
 
-    // useEffect(()=> {
-    //   console.log(paciente)
-    // },[paciente])
-  
 
     const handleName = (e) => {
         setNome(e.target.value);
@@ -49,12 +45,12 @@ export const Form = () => {
 const enviar = (e) => {
 e.preventDefault();
 
-paciente = {nome:nome, idade:idade, risco:risco, sintomas:sint}
+paciente = {nome:nome, idade:idade, grauRisco:risco, sintomas:sint}
 
 
 
 const url = "http://localhost:8080/pacientes"
-
+console.log(paciente)
 PostRequest(paciente, url);
 
 
@@ -66,54 +62,59 @@ resetForm();
 
   return (
     <div className={styles.mainContainer}>
-      <form action="">
-        <div className={styles.inputDiv}>
-          <label htmlFor="name">Nome do paciente:</label>
-          <input
-           onChange={(e) => handleName(e)}
-            type="text"
-            name="name"
-            placeholder="Exemplo: João da silva"
-            value={nome}
-            required
-          />
+      <form>
+
+        <div className={styles.main}>
+          <h1>Cadastrar Paciente</h1>
+          <div className={styles.inputDiv}>
+            <label htmlFor="name">Nome do paciente:</label>
+            <input
+             onChange={(e) => handleName(e)}
+              type="text"
+              name="name"
+              placeholder="Exemplo: João da silva"
+              value={nome}
+              required
+            />
+          </div>
+          <div className={styles.inputDiv}>
+            <label htmlFor="age">Idade do paciente:</label>
+            <input
+            onChange={(e) => handleIdade(e)}
+              type="number"
+              name="age"
+              placeholder="Exemplo: 29 anos"
+              min={1}
+              value={idade}
+              required
+            />
+          </div>
         </div>
-        <div className={styles.inputDiv}>
-          <label htmlFor="age">Idade do paciente:</label>
-          <input
-          onChange={(e) => handleIdade(e)}
-            type="number"
-            name="age"
-            placeholder="Exemplo: 29 anos"
-            min={1}
-            value={idade}
-            required
-          />
-        </div>
+
         <div className={styles.radio}>
           <div className={styles.radioContainer}>
             <label htmlFor="risco">Emergência </label>
-            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"emergencia"} />
+            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"Emergência"}/>
           </div>
 
           <div className={styles.radioContainer}>
             <label htmlFor="risco"> Muito Urgente</label>
-            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"muitoUrgente"} />
+            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"Muito Urgente"} />
           </div>
 
           <div className={styles.radioContainer}>
             <label htmlFor="risco"> Urgente</label>
-            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"urgente"} />
+            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"Urgente"} />
           </div>
 
           <div className={styles.radioContainer}>
             <label htmlFor="risco"> Pouco Urgente</label>
-            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"poucoUrgente"} />
+            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"Pouco Urgente"} />
           </div>
 
           <div className={styles.radioContainer}>
             <label htmlFor="risco"> Não Urgente</label>
-            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"naoUrgente"} />
+            <input onChange={(e) => handleRisc(e)} type="radio" name="risco" value={"Não Urgente"} />
           </div>
         </div>
         <div className={styles.sintomas}>

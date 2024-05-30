@@ -3,7 +3,7 @@ import styles from "./PacienteHistorico.module.css"
 
 export const PacienteHistorico = ({ data }) => {
   return (
-    <div>
+    <div >
       <div className={styles.paciente}>
         <FaUser className={styles.user} />
         <div className={styles.dados}>

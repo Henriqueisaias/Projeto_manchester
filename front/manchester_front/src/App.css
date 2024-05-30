@@ -9,6 +9,7 @@ body{
 
 main{
   height: 100%;
+  
 }
 
 .main-container{
@@ -18,4 +19,5 @@ main{
   display: flex;
   flex-direction: column;
   background-color: white;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.397);
 }
