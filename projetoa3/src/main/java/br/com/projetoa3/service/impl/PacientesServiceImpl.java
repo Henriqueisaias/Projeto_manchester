@@ -5,6 +5,7 @@ import br.com.projetoa3.entity.Pacientes;
 import br.com.projetoa3.exception.ResourceNotFoundException;
 import br.com.projetoa3.mapper.PacientesMapper;
 import br.com.projetoa3.repository.ManchesterRepository;
+import br.com.projetoa3.service.FilaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import br.com.projetoa3.service.PacienteService;
@@ -18,11 +19,15 @@ import java.util.stream.Collectors;
 public class PacientesServiceImpl implements PacienteService{
 
     private ManchesterRepository manchesterRepository;
+    private FilaService filaService;
     @Override
     public PacientesDTO createPaciente(PacientesDTO pacientesDTO) {
 
         Pacientes pacientes = PacientesMapper.mapToPacientes(pacientesDTO);
         Pacientes savePacientes = manchesterRepository.save(pacientes);
+
+        filaService.addPacienteToFila(savePacientes.getId(), savePacientes.getGrauRisco());
+
         return PacientesMapper.mapToPacientesDTO(savePacientes);
     }
 

@@ -10,6 +10,7 @@ public class FilaDTO {
     private Long pacienteId;
     private String nomePaciente;
     private String sintomasPaciente;
+    private Integer idadePaciente;
     private String grauRisco;
     private Integer posicao;
     private Integer prioridade;

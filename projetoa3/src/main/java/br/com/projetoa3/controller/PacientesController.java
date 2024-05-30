@@ -25,6 +25,8 @@ public class PacientesController {
         String dataEntradaFormatada = LocalDateTime.now().format(formatter);
         pacientesDTO.setDataEntrada(LocalDateTime.parse(dataEntradaFormatada, formatter));
         PacientesDTO savePacientes = service.createPaciente(pacientesDTO);
+
+        
         return new ResponseEntity<>(savePacientes, HttpStatus.CREATED);
     }
 

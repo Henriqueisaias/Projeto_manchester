@@ -15,19 +15,23 @@ public class PacientesMapper {
                 pacientes.getSintomas(),
                 pacientes.getDataEntrada(),
                 pacientes.getDataSaida(),
-                pacientes.getRemediosReceitados()
+                pacientes.getRemediosReceitados(),
+                pacientes.getGrauRisco()
         );
     }
 
-    public static Pacientes mapToPacientes(PacientesDTO pacientesDTO) {
-        return new Pacientes(
-                pacientesDTO.getId(),
-                pacientesDTO.getNome(),
-                pacientesDTO.getIdade(),
-                pacientesDTO.getSintomas(),
-                pacientesDTO.getDataEntrada(),
-                pacientesDTO.getDataSaida(),
-                pacientesDTO.getRemediosReceitados()
-        );
+
+    public static Pacientes mapToPacientes(PacientesDTO pacienteDTO) {
+        Pacientes paciente = new Pacientes();
+        paciente.setId(pacienteDTO.getId());
+        paciente.setNome(pacienteDTO.getNome());
+        paciente.setIdade(pacienteDTO.getIdade());
+        paciente.setSintomas(pacienteDTO.getSintomas());
+        paciente.setDataEntrada(pacienteDTO.getDataEntrada());
+        paciente.setDataSaida(pacienteDTO.getDataSaida());
+        paciente.setRemediosReceitados(pacienteDTO.getRemediosReceitados());
+        paciente.setGrauRisco(pacienteDTO.getGrauRisco()); // Novo campo mapeado
+        return paciente;
     }
+
 }

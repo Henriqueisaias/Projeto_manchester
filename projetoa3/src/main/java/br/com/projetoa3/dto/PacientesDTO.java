@@ -26,4 +26,5 @@ public class PacientesDTO {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime dataSaida;
     private String remediosReceitados;
+    private String grauRisco;
 }
