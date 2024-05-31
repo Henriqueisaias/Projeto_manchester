@@ -1,26 +1,27 @@
 import styles from "./Paciente.module.css";
 import { FaUser } from "react-icons/fa";
+import PropTypes from "prop-types";
 
-function Paciente({ data }) {
+export const Paciente = ({ data }) => {
   let corIcone = "";
   switch (data.grauRisco) {
     case "Emergência":
-      corIcone = "red";
+      corIcone = "#E51300";
       break;
     case "Urgente":
-      corIcone = "orange";
+      corIcone = "#E5DC00";
       break;
     case "Muito Urgente":
-      corIcone = "orange";
+      corIcone = "#E66E01";
       break;
     case "Pouco Urgente":
-      corIcone = "yellow";
+      corIcone = "#3DE556";
       break;
     case "Não Urgente":
-      corIcone = "green";
+      corIcone = "#08C3E5";
       break;
     default:
-      corIcone = "black"; // Cor padrão se não houver correspondência
+      corIcone = "#E4E3DA";
   }
 
   return (
@@ -38,4 +39,6 @@ function Paciente({ data }) {
   );
 }
 
-export default Paciente;
+Paciente.propTypes = {
+  data: PropTypes.object.isRequired
+}

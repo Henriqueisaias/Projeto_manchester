@@ -1,15 +1,15 @@
 import { useState } from "react";
 import styles from "./FormMed.module.css";
-import PutRequest from "../hooks/PutRequest.js";
-import DeleteRequest from "../hooks/DeleteRequest.js";
-import Paciente from "./Paciente.jsx"
+import PutRequest from "../../../hooks/PutRequest.js";
+import DeleteRequest from "../../../hooks/DeleteRequest.js";
+import { Paciente } from "../Paciente/Paciente.jsx";
+import PropTypes from "prop-types";
 
 export const FormMed = ({ dados, func }) => {
-  // Verifica se dados não é undefined e tem pelo menos um item
   const atual = dados && dados.length > 0 ? dados[0] : null;
   const [remedios, setRemedios] = useState("");
 
-  const id = atual ? atual.id : '';
+  const id = atual ? atual.id : "";
   const url = id ? `http://localhost:8080/pacientes/${id}` : "";
 
   const handleRemedios = (e) => {
@@ -23,10 +23,10 @@ export const FormMed = ({ dados, func }) => {
         atual.remediosReceitados = remedios;
         await PutRequest(atual, url);
         await DeleteRequest(atual);
-        func(); // Incrementa o estado no componente pai
-        setRemedios(""); // Reseta o valor da textarea
+        func();
+        setRemedios("");
       } catch (error) {
-        console.error('Erro ao enviar dados:', error);
+        console.error("Erro ao enviar dados:", error);
       }
     }
   };
@@ -37,17 +37,13 @@ export const FormMed = ({ dados, func }) => {
         <h2>Paciente atual:</h2>
         {atual ? (
           <>
-            <Paciente data={atual}/>
+            <Paciente data={atual} />
             <textarea
               value={remedios}
               onChange={handleRemedios}
               placeholder="Digite os remedios a receitar"
             ></textarea>
-            <input
-              className={styles.btnMed}
-              type="submit"
-              value={"Enviar"}
-            />
+            <input className={styles.btnMed} type="submit" value={"Enviar"} />
           </>
         ) : (
           <p>Nenhum paciente na fila</p>
@@ -55,4 +51,9 @@ export const FormMed = ({ dados, func }) => {
       </form>
     </div>
   );
+};
+
+FormMed.propTypes = {
+  dados: PropTypes.array.isRequired,
+  func: PropTypes.func.isRequired,
 };

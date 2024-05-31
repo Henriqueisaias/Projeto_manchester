@@ -1,5 +1,6 @@
 import { FaUser } from "react-icons/fa";
 import styles from "./PacienteHistorico.module.css"
+import PropTypes from "prop-types";
 
 export const PacienteHistorico = ({ data }) => {
   return (
@@ -18,3 +19,7 @@ export const PacienteHistorico = ({ data }) => {
     </div>
   );
 };
+
+
+PacienteHistorico.propTypes =
+{data : PropTypes.object.isRequired}

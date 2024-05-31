@@ -1,5 +1,5 @@
 import { PacienteHistorico } from "./PacienteHistorico";
-
+import PropTypes from "prop-types"
 import styles from "./Lista.module.css"
 
 
@@ -16,3 +16,7 @@ export const Lista = ({dados}) => {
     </div>
   );
 };
+
+Lista.propTypes ={
+  dados: PropTypes.object.isRequired
+}

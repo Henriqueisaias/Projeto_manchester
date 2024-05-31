@@ -1,7 +1,7 @@
 import styles from "./Form.module.css";
 import { useState } from "react"
-import PostRequest from "../hooks/PostRequest.js"
-// import { useEffect } from "react";
+import PostRequest from "../../hooks/PostRequest.js"
+
 
 export const Form = () => {
 
@@ -26,19 +26,15 @@ export const Form = () => {
 
     const handleName = (e) => {
         setNome(e.target.value);
-        // console.log(nome);
     }
     const handleIdade = (e) => {
         setIdade(e.target.value);
-        // console.log(idade);
     }
     const handleRisc = (e) => {
         setRisco(e.target.value)
-        // console.log(risco)
     }
     const handleSint = (e) => {
        setSint(e.target.value)
-        // console.log(sint)
     }
 
 
