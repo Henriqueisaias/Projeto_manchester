@@ -6,7 +6,10 @@ import java.util.List;
 
 public interface FilaService {
     FilaDTO addPacienteToFila(Long pacienteId, String grauRisco);
+
     void removePacienteFromFila(Long id);
+
     List<FilaDTO> getPacientesByGrauRisco(String grauRisco);
+
     List<FilaDTO> getAllPacientes();
 }

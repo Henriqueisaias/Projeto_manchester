@@ -18,7 +18,6 @@ import br.com.projetoa3.entity.Fila;
             Fila fila = new Fila();
             fila.setId(filaDTO.getId());
             // Aqui você precisará buscar o paciente pelo ID e setar na entidade Fila
-            // Isso deve ser feito no serviço, não no mapper
             fila.setGrauRisco(filaDTO.getGrauRisco());
             fila.setPosicao(filaDTO.getPosicao());
             fila.setPrioridade(filaDTO.getPrioridade());

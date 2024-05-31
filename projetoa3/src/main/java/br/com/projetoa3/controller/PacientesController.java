@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -48,6 +47,10 @@ public class PacientesController {
     public ResponseEntity<PacientesDTO> updatePacientes(@PathVariable("id") Long pacienteId,
                                                         @RequestBody PacientesDTO updatePacientes){
         PacientesDTO pacientesDTO = service.updatePacientes(pacienteId,updatePacientes);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataSaidaFormatada = LocalDateTime.now().format(formatter);
+        pacientesDTO.setDataSaida(LocalDateTime.parse(dataSaidaFormatada, formatter));
+
         return ResponseEntity.ok(pacientesDTO);
     }
     @CrossOrigin(origins = "*", allowedHeaders = "*")

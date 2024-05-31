@@ -9,7 +9,6 @@ import br.com.projetoa3.service.FilaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import br.com.projetoa3.service.PacienteService;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

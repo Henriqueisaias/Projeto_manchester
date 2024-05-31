@@ -4,7 +4,6 @@ import br.com.projetoa3.dto.FilaDTO;
 import br.com.projetoa3.service.FilaService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @AllArgsConstructor

@@ -1,8 +1,6 @@
 package br.com.projetoa3.mapper;
 
 import br.com.projetoa3.dto.PacientesDTO;
-//import br.com.projetoa3.dto.PacientesRequestDTO;
-//import br.com.projetoa3.dto.PacientesResponseDTO;
 import br.com.projetoa3.entity.Pacientes;
 
 public class PacientesMapper {

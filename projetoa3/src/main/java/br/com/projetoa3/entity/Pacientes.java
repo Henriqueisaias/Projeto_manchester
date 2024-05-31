@@ -1,10 +1,7 @@
 package br.com.projetoa3.entity;
 
-//import br.com.projetoa3.dto.PacientesDTO;
-//import br.com.projetoa3.dto.PacientesRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
 
 @Getter
@@ -39,12 +36,4 @@ public class Pacientes {
 
     @Column(name = "grauRisco")
     private String grauRisco;
-
-//    public  Pacientes(PacientesDTO data){
-//        this.nome = data.nome();
-//        this.idade = data.idade();
-//        this.pressao = data.pressao();
-//        this.sintomas = data.sintomas();
-//    }
-
 }

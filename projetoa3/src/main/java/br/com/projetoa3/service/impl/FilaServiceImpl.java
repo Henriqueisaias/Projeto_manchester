@@ -4,14 +4,11 @@ import br.com.projetoa3.dto.FilaDTO;
 import br.com.projetoa3.entity.Fila;
 import br.com.projetoa3.entity.Pacientes;
 import br.com.projetoa3.exception.ResourceNotFoundException;
-import br.com.projetoa3.mapper.FilaMapper;
 import br.com.projetoa3.repository.FilaRepository;
 import br.com.projetoa3.repository.ManchesterRepository;
 import br.com.projetoa3.service.FilaService;
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,6 +23,7 @@ public class FilaServiceImpl implements FilaService {
     //Lista estática que define a ordem de prioridade dos graus de risco.
     private static final List<String> PRIORIDADE_RISCO = List.of(
             "Emergência",
+            "Muito Urgente",
             "Urgente",
             "Não Urgente",
             "Pouco Urgente"
@@ -101,15 +99,18 @@ public class FilaServiceImpl implements FilaService {
 
     // Método para obter a prioridade com base no grau de risco
     private int getPrioridade(String grauRisco) {
-        switch (grauRisco) {
-            case "Emergência":
+        String grauRiscoLower = grauRisco.toLowerCase();
+        switch (grauRiscoLower) {
+            case "emergência":
                 return 1;
-            case "Urgente":
+            case "muito urgente":
                 return 2;
-            case "Não Urgente":
+            case "urgente":
                 return 3;
-            case "Pouco Urgente":
+            case "não urgente":
                 return 4;
+            case "pouco urgente":
+                return 5;
             default:
                 //Tratamento de exception
                 throw new IllegalArgumentException("Grau de risco desconhecido: " + grauRisco);
