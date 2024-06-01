@@ -55,6 +55,7 @@ public class PacientesServiceImpl implements PacienteService{
         pacientes.setIdade(updatePacientes.getIdade());
         pacientes.setSintomas(updatePacientes.getSintomas());
         pacientes.setRemediosReceitados(updatePacientes.getRemediosReceitados());
+        pacientes.setDataSaida(updatePacientes.getDataSaida());
 
        Pacientes updatePacientesObj = manchesterRepository.save(pacientes);
 

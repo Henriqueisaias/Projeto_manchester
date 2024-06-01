@@ -46,10 +46,11 @@ public class PacientesController {
     @PutMapping("{id}")
     public ResponseEntity<PacientesDTO> updatePacientes(@PathVariable("id") Long pacienteId,
                                                         @RequestBody PacientesDTO updatePacientes){
-        PacientesDTO pacientesDTO = service.updatePacientes(pacienteId,updatePacientes);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String dataSaidaFormatada = LocalDateTime.now().format(formatter);
-        pacientesDTO.setDataSaida(LocalDateTime.parse(dataSaidaFormatada, formatter));
+        updatePacientes.setDataSaida(LocalDateTime.parse(dataSaidaFormatada, formatter));
+
+        PacientesDTO pacientesDTO = service.updatePacientes(pacienteId,updatePacientes);
 
         return ResponseEntity.ok(pacientesDTO);
     }

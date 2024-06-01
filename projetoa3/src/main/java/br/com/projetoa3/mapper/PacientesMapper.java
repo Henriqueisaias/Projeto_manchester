@@ -28,7 +28,7 @@ public class PacientesMapper {
         paciente.setDataEntrada(pacienteDTO.getDataEntrada());
         paciente.setDataSaida(pacienteDTO.getDataSaida());
         paciente.setRemediosReceitados(pacienteDTO.getRemediosReceitados());
-        paciente.setGrauRisco(pacienteDTO.getGrauRisco()); // Novo campo mapeado
+        paciente.setGrauRisco(pacienteDTO.getGrauRisco());
         return paciente;
     }
 
