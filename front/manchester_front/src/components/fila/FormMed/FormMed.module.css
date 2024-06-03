@@ -1,0 +1,27 @@
+.btnMed{
+    background-color: #0b9c39;
+    color: white; 
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 15px;
+    border: none;
+    width: 90%;
+}
+
+textarea{
+  width : 500px;
+  margin-top: 30px;
+  height: 150px;
+  margin-bottom: 30px;
+}
+
+.atual{
+    margin-top: 30px;
+}
+
+h2{
+  margin-bottom: 20px;
+}
