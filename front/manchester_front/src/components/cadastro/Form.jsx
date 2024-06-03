@@ -9,7 +9,7 @@ export const Form = () => {
 
   const [nome, setNome] = useState("")
   const [idade, setIdade] = useState(0)
-  const [risco, setRisco] = useState("emergencia")
+  const [risco, setRisco] = useState("Emêrgencia")
   const [sint, setSint] = useState("")
 
 
@@ -17,7 +17,7 @@ export const Form = () => {
 
     setNome("")
     setIdade(0)
-    setRisco("emergencia")
+    setRisco("Emêrgencia")
     setSint("")
   }
 
