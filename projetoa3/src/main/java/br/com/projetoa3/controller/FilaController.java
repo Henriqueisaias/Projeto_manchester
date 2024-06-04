@@ -18,32 +18,34 @@ import java.util.List;
 import br.com.projetoa3.service.FilaService;
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/fila")
+@AllArgsConstructor
 public class FilaController {
 
-     private final FilaService filaService;
+    private final FilaService filaService;
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/grauRisco/{grauRisco}")
-    public List<FilaDTO> getPacientesByGrauRisco(@PathVariable String grauRisco){
+    public List<FilaDTO> getPacientesByGrauRisco(@PathVariable String grauRisco) {
         return filaService.getPacientesByGrauRisco(grauRisco);
     }
+
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/all")
     public List<FilaDTO> getAllPacientes() {
         return filaService.getAllPacientes();
     }
+
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/add")
     public FilaDTO addPacienteToFila(@RequestBody FilaDTO filaDTO) {
         return filaService.addPacienteToFila(filaDTO.getPacienteId(), filaDTO.getGrauRisco());
     }
+
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/removePacienteFila/{id}")
     public void removePacienteFromFila(@PathVariable Long id) {
         filaService.removePacienteFromFila(id);
     }
-
 }
