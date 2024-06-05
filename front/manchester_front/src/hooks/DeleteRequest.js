@@ -13,7 +13,7 @@ const DeleteRequest = async (data) => {
     console.log('Resposta do servidor via DELETE:', response.data);
     return response.data;
   } catch (err) {
-    console.log('Erro ao enviar dados via DELETE:', err.message);
+    document.window.alert("Erro ao cadastrar paciente")
     throw err;
   }
 }
