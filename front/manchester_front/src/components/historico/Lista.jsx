@@ -18,5 +18,5 @@ export const Lista = ({dados}) => {
 };
 
 Lista.propTypes ={
-  dados: PropTypes.object.isRequired
+  dados: PropTypes.array.isRequired
 }

@@ -30,33 +30,35 @@ export const Form = () => {
 
   const enviar = async (e) => {
     e.preventDefault();
-  
+
     const paciente = {
       nome: nome,
       idade: idade,
       grauRisco: risco,
       sintomas: sint,
     };
-  
+
     const url = "http://localhost:8080/pacientes";
     console.log("Dados do paciente a ser enviado:", paciente);
-  
+
     try {
       const response = await PostRequest(paciente, url);
-      console.log(response);
-  
+      console.log('Resposta completa do servidor:', response);
+      console.log(`status code = ${response.status}`);
+
       if (response.status === 201) { // Verifica se o status da resposta é 201 (Created)
         window.alert("Paciente cadastrado com sucesso");
+        resetForm();
       } else {
-        window.alert(`Erro ao cadastrar paciente: ${response.statusText}`);
+        window.alert(`Erro ao cadastrar paciente: ${response.status}`);
       }
     } catch (err) {
+      console.error('Erro capturado:', err);
       window.alert(`Erro ao enviar os dados: ${err.message}`);
     }
-  
-    resetForm();
+
+    
   };
-  
 
   return (
     <div className={styles.mainContainer}>

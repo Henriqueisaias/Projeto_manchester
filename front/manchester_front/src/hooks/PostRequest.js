@@ -1,17 +1,15 @@
-import axios from "axios";
 
+import axios from 'axios';
 
-const PostRequest = async(data, url) => {
-
-if (data.nome === '' ){
-console.log("err")
-}
-
-try{
+const PostRequest = async (data, url) => {
+  try {
     const response = await axios.post(url, data);
-    console.log('dados enviados', response.data);
-}catch(err){console.log('erro ao enviar dados', err)}
-
-}
+    console.log('Resposta do servidor via POST:', response);
+    return response; // Certifique-se de que estamos retornando a resposta completa
+  } catch (err) {
+    console.log('Erro ao enviar dados via POST:', err.message);
+    throw err;
+  }
+};
 
 export default PostRequest;
