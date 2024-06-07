@@ -13,10 +13,18 @@ main{
 
 .main-container{
   margin: 0 auto;
-  max-width: 600px;
+  width: 600px;
   min-height: 900px;
   display: flex;
   flex-direction: column;
   background-color: white;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.397);
+}
+
+@media (max-width: 480px) {
+  
+.main-container{
+  max-width: 480px;
+}
+
 }
