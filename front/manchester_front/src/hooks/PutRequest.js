@@ -2,7 +2,6 @@ import axios from "axios";
 
 const PutRequest = async (data, url) => {
   if (!data || typeof data !== 'object' || !data.id) {
-    console.log("Dados inválidos para a requisição PUT");
     return;
   }
 

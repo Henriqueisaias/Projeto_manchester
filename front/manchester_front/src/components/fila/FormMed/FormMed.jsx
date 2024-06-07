@@ -23,7 +23,12 @@ export const FormMed = ({ dados, func }) => {
         atual.remediosReceitados = remedios;
         await PutRequest(atual, url);
         await DeleteRequest(atual);
+        window.alert(`Atendimento do paciente finalizado`)
         func();
+
+        
+
+
         setRemedios("");
       } catch (error) {
         console.error("Erro ao enviar dados:", error);
@@ -42,6 +47,7 @@ export const FormMed = ({ dados, func }) => {
               value={remedios}
               onChange={handleRemedios}
               placeholder="Digite os remedios a receitar"
+              required
             ></textarea>
             <input className={styles.btnMed} type="submit" value={"Enviar"} />
           </>

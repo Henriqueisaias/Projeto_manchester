@@ -8,12 +8,12 @@ export const PacienteHistorico = ({ data }) => {
       <div className={styles.paciente}>
         <FaUser className={styles.user} />
         <div className={styles.dados}>
-          <h3>Nome: {data.nome}</h3>
-          <p>Idade: {data.idade} anos</p>
-          <p>Data de Entrada: {data.dataEntrada}</p>
-          <p>Data de Saída: {data.dataSaida}</p>
-          <p>Remédios Receitados: {data.remediosReceitados}</p>
-          <p>Sintomas: {data.sintomas}</p>
+          <p><strong>Nome:</strong> {data.nome}</p>
+          <p><strong>Idade:</strong> {data.idade} anos</p>
+          <p><strong>Data de Entrada:</strong> {data.dataEntrada}</p>
+          <p><strong>Data de Saída: </strong>{data.dataSaida}</p>
+          <p><strong>Remédios Receitados:</strong> {data.remediosReceitados}</p>
+          <p><strong>Sintomas:</strong> {data.sintomas}</p>
         </div>
       </div>
     </div>

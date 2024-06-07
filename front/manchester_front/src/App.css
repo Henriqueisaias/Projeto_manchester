@@ -9,12 +9,11 @@ body{
 
 main{
   height: 100%;
-  
 }
 
 .main-container{
   margin: 0 auto;
-  width: 600px;
+  max-width: 600px;
   min-height: 900px;
   display: flex;
   flex-direction: column;

@@ -1,3 +1,6 @@
+
+
+
 .btnMed{
     background-color: #0b9c39;
     color: white; 
@@ -12,7 +15,7 @@
 }
 
 textarea{
-  width : 500px;
+  width : 100%;
   margin-top: 30px;
   height: 150px;
   margin-bottom: 30px;
@@ -20,6 +23,7 @@ textarea{
 
 .atual{
     margin-top: 30px;
+    width: 100%;
 }
 
 h2{

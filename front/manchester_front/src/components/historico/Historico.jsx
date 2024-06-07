@@ -35,9 +35,9 @@ export const Historico = () => {
 
   return (
     <>
-      {dados.length < 0 ? (
+      {dados.length === 0 ? (
         <div>
-          <h1>Sem Historico para mostrar</h1>
+          <h1>Sem dados para exibir</h1>
         </div>
       ) : (
         <div>

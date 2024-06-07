@@ -71,7 +71,7 @@ input {
 
 textarea {
   text-indent: 10px;
-  width: 90%;
+  max-width: 90%;
 }
 
 .button {

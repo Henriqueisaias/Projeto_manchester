@@ -43,7 +43,7 @@ export const FilaComponent = () => {
 
   return (
     <>
-      {dados.length < 0 ? (
+      {dados.length === 0 ? (
         <div>
           <h1>Sem pacientes para mostrar</h1>
         </div>
@@ -53,9 +53,9 @@ export const FilaComponent = () => {
           <FormMed dados={dados} func={incrementClick} />
           <div>
             <h1 className={styles.title}>Proximos Pacientes</h1>
-            {dados.slice(1).map((paciente) => (
-              <Paciente key={paciente.id} data={paciente} />
-            ))}
+
+            {dados.length === 1 ? (<h3>sem pacientes na fila</h3>) : (dados.slice(1).map((paciente) => (
+              <Paciente key={paciente.id} data={paciente} />)))}
           </div>
         </>
       )}

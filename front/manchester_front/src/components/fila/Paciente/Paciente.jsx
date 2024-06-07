@@ -6,19 +6,19 @@ export const Paciente = ({ data }) => {
   let corIcone = "";
   switch (data.grauRisco) {
     case "Emergência":
-      corIcone = "#E51300";
+      corIcone = "#FF0000";
       break;
     case "Urgente":
-      corIcone = "#E5DC00";
+      corIcone = "#FFFF00";
       break;
     case "Muito Urgente":
-      corIcone = "#E66E01";
+      corIcone = "#FFA500";
       break;
     case "Pouco Urgente":
-      corIcone = "#3DE556";
+      corIcone = "#008000";
       break;
     case "Não Urgente":
-      corIcone = "#08C3E5";
+      corIcone = "#0000FF";
       break;
     default:
       corIcone = "#E4E3DA";
@@ -30,10 +30,10 @@ export const Paciente = ({ data }) => {
         <FaUser className={styles.user} style={{ backgroundColor: corIcone }} />
       </div>
       <div className={styles.dados}>
-        <h3>Nome: {data.nomePaciente}</h3>
-        <p>Idade: {data.idadePaciente} anos</p>
-        <p>Risco: {data.grauRisco}</p>
-        <p>sintomas: {data.sintomasPaciente}</p>
+        <p><strong>Nome:</strong> {data.nomePaciente}</p>
+        <p><strong>Idade:</strong> {data.idadePaciente} anos</p>
+        <p><strong>Risco:</strong> {data.grauRisco}</p>
+        <p><strong>sintomas:</strong> {data.sintomasPaciente}</p>
       </div>
     </div>
   );
