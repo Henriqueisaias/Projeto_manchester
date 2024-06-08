@@ -1,9 +1,11 @@
 import GetRequest from "../../hooks/GetRequest.js";
-import { Lista } from "./Lista";
+import { Lista } from "./lista/Lista.jsx";
 import { useEffect, useState } from "react";
+import  Styles  from "./HistoricoComponent.module.css"
 
-export const Historico = () => {
+export const HistoricoComponent = () => {
   const [dados, setDados] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const url = "http://localhost:8080/pacientes";
 
   useEffect(() => {
@@ -33,15 +35,31 @@ export const Historico = () => {
     };
   }, []);
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredDados = searchTerm
+    ? dados.filter(dado => dado.nome.toLowerCase().includes(searchTerm.toLowerCase()))
+    : dados;
+
   return (
     <>
-      {dados.length === 0 ? (
+      <div className={Styles.busca}>
+        <input
+          type="text"
+          placeholder="Buscar pelo nome"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div>
+      {filteredDados.length === 0 ? (
         <div>
           <h1>Sem dados para exibir</h1>
         </div>
       ) : (
         <div>
-          <Lista dados={dados} />
+          <Lista dados={filteredDados} />
         </div>
       )}
     </>

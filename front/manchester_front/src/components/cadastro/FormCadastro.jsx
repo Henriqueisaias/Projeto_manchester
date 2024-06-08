@@ -1,8 +1,8 @@
-import styles from "./Form.module.css";
+import styles from "./FormCadastro.module.css";
 import { useState } from "react";
 import PostRequest from "../../hooks/PostRequest.js";
 
-export const Form = () => {
+export const FormCadastro = () => {
   const [nome, setNome] = useState("");
   const [idade, setIdade] = useState(0);
   const [risco, setRisco] = useState("Emergência");
@@ -46,7 +46,7 @@ export const Form = () => {
       console.log('Resposta completa do servidor:', response);
       console.log(`status code = ${response.status}`);
 
-      if (response.status === 201) { // Verifica se o status da resposta é 201 (Created)
+      if (response.status === 201) {
         window.alert("Paciente cadastrado com sucesso");
         resetForm();
       } else {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Paciente } from "../Paciente/Paciente.jsx";
+import { PacienteFila } from "../Paciente/PacienteFila.jsx";
 import styles from "./FilaComponent.module.css";
 import { FormMed } from "../FormMed/FormMed.jsx";
 import GetRequest from "../../../hooks/GetRequest.js";
@@ -26,7 +26,6 @@ export const FilaComponent = () => {
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
       } finally {
-        
         if (isMounted) {
           timeoutId = setTimeout(fetchData, 1000);
         }
@@ -54,8 +53,15 @@ export const FilaComponent = () => {
           <div>
             <h1 className={styles.title}>Proximos Pacientes</h1>
 
-            {dados.length === 1 ? (<h3>sem pacientes na fila</h3>) : (dados.slice(1).map((paciente) => (
-              <Paciente key={paciente.id} data={paciente} />)))}
+            {dados.length === 1 ? (
+              <h3>sem pacientes na fila</h3>
+            ) : (
+              dados
+                .slice(1)
+                .map((paciente) => (
+                  <PacienteFila key={paciente.id} data={paciente} />
+                ))
+            )}
           </div>
         </>
       )}

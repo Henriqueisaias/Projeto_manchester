@@ -1,4 +1,4 @@
-import { PacienteHistorico } from "./PacienteHistorico";
+import { PacienteHistorico } from "../PacienteHistorico/PacienteHistorico";
 import PropTypes from "prop-types"
 import styles from "./Lista.module.css"
 

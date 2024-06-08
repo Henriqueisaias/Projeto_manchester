@@ -1,8 +1,8 @@
-import styles from "./Paciente.module.css";
+import styles from "./PacienteFila.module.css";
 import { FaUser } from "react-icons/fa";
 import PropTypes from "prop-types";
 
-export const Paciente = ({ data }) => {
+export const PacienteFila = ({ data }) => {
   let corIcone = "";
   switch (data.grauRisco) {
     case "Emergência":
@@ -39,6 +39,6 @@ export const Paciente = ({ data }) => {
   );
 }
 
-Paciente.propTypes = {
+PacienteFila.propTypes = {
   data: PropTypes.object.isRequired
 }

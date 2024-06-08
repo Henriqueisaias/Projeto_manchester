@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./FormMed.module.css";
 import PutRequest from "../../../hooks/PutRequest.js";
 import DeleteRequest from "../../../hooks/DeleteRequest.js";
-import { Paciente } from "../Paciente/Paciente.jsx";
+import { PacienteFila } from "../Paciente/PacienteFila.jsx";
 import PropTypes from "prop-types";
 
 export const FormMed = ({ dados, func }) => {
@@ -23,11 +23,8 @@ export const FormMed = ({ dados, func }) => {
         atual.remediosReceitados = remedios;
         await PutRequest(atual, url);
         await DeleteRequest(atual);
-        window.alert(`Atendimento do paciente finalizado`)
+        window.alert(`Atendimento do paciente finalizado`);
         func();
-
-        
-
 
         setRemedios("");
       } catch (error) {
@@ -42,7 +39,7 @@ export const FormMed = ({ dados, func }) => {
         <h2>Paciente atual:</h2>
         {atual ? (
           <>
-            <Paciente data={atual} />
+            <PacienteFila data={atual} />
             <textarea
               value={remedios}
               onChange={handleRemedios}

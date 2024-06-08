@@ -1,0 +1,10 @@
+.busca {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.busca input{
+    width: 60%;
+    height: 50px;
+    font-size: 1rem;
+}
