@@ -13,6 +13,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Implementação do serviço de gerenciamento de fila de pacientes.
+ */
 @Service
 @AllArgsConstructor
 public class FilaServiceImpl implements FilaService {
@@ -29,6 +32,13 @@ public class FilaServiceImpl implements FilaService {
             "Pouco Urgente"
     );
 
+    /**
+     * Adiciona um paciente à fila de acordo com o grau de risco.
+     *
+     * @param pacienteId ID do paciente a ser adicionado.
+     * @param grauRisco Grau de risco do paciente.
+     * @return FilaDTO Dados da fila após adicionar o paciente.
+     */
     @Override
     //Cria uma nova instância de Fila, configurando os atributos pacienteId e grauRisco.
     public FilaDTO addPacienteToFila(Long pacienteId, String grauRisco) {
@@ -55,20 +65,33 @@ public class FilaServiceImpl implements FilaService {
         return mapToDTO(savedFila);
     }
 
-    // Método para remover um paciente da fila
+    /**
+     * Remove um paciente da fila.
+     *
+     * @param id ID do paciente a ser removido.
+     */
     @Override
     public void removePacienteFromFila(Long id) {
         filaRepository.deleteById(id);
     }
 
-    // Método para obter todos os pacientes de uma fila específica por grau de risco
+    /**
+     * Obtém todos os pacientes de uma fila específica por grau de risco.
+     *
+     * @param grauRisco Grau de risco dos pacientes a serem buscados.
+     * @return Lista de FilaDTO contendo os dados dos pacientes.
+     */
     @Override
     public List<FilaDTO> getPacientesByGrauRisco(String grauRisco) {
         List<Fila> filas = filaRepository.findByGrauRiscoOrderByPosicao(grauRisco);
         return filas.stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    // Método para obter todos os pacientes da fila, ordenados por prioridade e posição
+    /**
+     * Obtém todos os pacientes da fila, ordenados por prioridade e posição.
+     *
+     * @return Lista de FilaDTO contendo os dados de todos os pacientes na fila.
+     */
     @Override
     public List<FilaDTO> getAllPacientes() {
         List<Fila> filas = filaRepository.findAll();
@@ -78,7 +101,13 @@ public class FilaServiceImpl implements FilaService {
                 .collect(Collectors.toList());
     }
 
-    // Método para converter a entidade Fila para DTO
+    /**
+     * Converte a entidade Fila para DTO.
+     *
+     * @param fila Entidade Fila a ser convertida.
+     * @return FilaDTO Dados convertidos da fila.
+     * @throws ResourceNotFoundException Se o paciente não for encontrado.
+     */
     private FilaDTO mapToDTO(Fila fila) {
         FilaDTO filaDTO = new FilaDTO();
         filaDTO.setId(fila.getId());
@@ -87,7 +116,6 @@ public class FilaServiceImpl implements FilaService {
         filaDTO.setPrioridade(getPrioridade(fila.getGrauRisco()));
         filaDTO.setPosicao(fila.getPosicao());
 
-        //Método para pegar o nome do paciente e sintomas
         Pacientes pacientes = manchesterRepository.findById(fila.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado com o ID:" + fila.getId()));
         filaDTO.setNomePaciente(pacientes.getNome());
@@ -97,7 +125,13 @@ public class FilaServiceImpl implements FilaService {
         return filaDTO;
     }
 
-    // Método para obter a prioridade com base no grau de risco
+    /**
+     * Obtém a prioridade com base no grau de risco.
+     *
+     * @param grauRisco Grau de risco do paciente.
+     * @return Prioridade numérica associada ao grau de risco.
+     * @throws IllegalArgumentException Se o grau de risco for desconhecido.
+     */
     private int getPrioridade(String grauRisco) {
         String grauRiscoLower = grauRisco.toLowerCase();
         switch (grauRiscoLower) {
@@ -112,7 +146,6 @@ public class FilaServiceImpl implements FilaService {
             case "pouco urgente":
                 return 5;
             default:
-                //Tratamento de exception
                 throw new IllegalArgumentException("Grau de risco desconhecido: " + grauRisco);
         }
     }

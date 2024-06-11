@@ -12,13 +12,22 @@ import br.com.projetoa3.service.PacienteService;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+/**
+ * Implementação do serviço de pacientes.
+ */
 @Service
 @AllArgsConstructor
 public class PacientesServiceImpl implements PacienteService{
 
     private ManchesterRepository manchesterRepository;
     private FilaService filaService;
+
+    /**
+     * Cria um novo paciente e adiciona à fila.
+     *
+     * @param pacientesDTO Dados do paciente a ser criado.
+     * @return PacientesDTO Dados do paciente criado.
+     */
     @Override
     public PacientesDTO createPaciente(PacientesDTO pacientesDTO) {
 
@@ -30,6 +39,12 @@ public class PacientesServiceImpl implements PacienteService{
         return PacientesMapper.mapToPacientesDTO(savePacientes);
     }
 
+    /**
+     * Obtém os detalhes de um paciente pelo ID.
+     *
+     * @param pacienteId ID do paciente a ser recuperado.
+     * @return PacientesDTO Dados do paciente recuperado.
+     */
     @Override
     public PacientesDTO getPacienteById(Long pacienteId) {
         Pacientes pacientes = manchesterRepository.findById(pacienteId)
@@ -39,6 +54,11 @@ public class PacientesServiceImpl implements PacienteService{
         return PacientesMapper.mapToPacientesDTO(pacientes);
     }
 
+    /**
+     * Recupera todos os pacientes.
+     *
+     * @return Lista de PacientesDTO contendo todos os pacientes.
+     */
     @Override
     public List<PacientesDTO> getAllPacientes() {
         List<Pacientes> allPacientes = manchesterRepository.findAll();
@@ -46,6 +66,13 @@ public class PacientesServiceImpl implements PacienteService{
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Atualiza os detalhes de um paciente específico.
+     *
+     * @param pacienteId ID do paciente a ser atualizado.
+     * @param updatePacientes Dados atualizados do paciente.
+     * @return PacientesDTO Dados do paciente atualizado.
+     */
     @Override
     public PacientesDTO updatePacientes(Long pacienteId, PacientesDTO updatePacientes) {
         Pacientes pacientes = manchesterRepository.findById(pacienteId).orElseThrow(
@@ -62,6 +89,11 @@ public class PacientesServiceImpl implements PacienteService{
         return PacientesMapper.mapToPacientesDTO(updatePacientesObj);
     }
 
+    /**
+     * Remove um paciente do sistema pelo ID.
+     *
+     * @param pacienteId ID do paciente a ser removido.
+     */
     @Override
     public void deletePaciente(Long pacienteId) {
         Pacientes pacientes = manchesterRepository.findById(pacienteId).orElseThrow(
