@@ -1,39 +1,55 @@
 package br.com.projetoa3.entity;
 
-import java.io.Serializable;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data //Cria os Getters and Setter e o ToString
-@AllArgsConstructor //Criar construtor com as propriedades de fila
-@NoArgsConstructor // Criar construtor vazio
-@Builder //Ajudar na criação do objeto fila
-@Entity //Informar que é uma entidade Banco de Dados
-public class Fila implements Serializable{
+/**
+ * Classe que representa a entidade Fila no sistema.
+ */
+@Getter
+@Setter
+@AllArgsConstructor
+@Entity
+@Table(name = "fila")
+@EqualsAndHashCode(of = "id")
+public class Fila {
+
+    /**
+     * Identificador único da fila.
+     */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Paciente associado à fila.
+     */
     @ManyToOne
     @JoinColumn(name = "paciente_id", nullable = false)
     private Pacientes paciente;
 
+    /**
+     * Grau de risco associado à fila.
+     */
     @Column(name = "grau_risco")
     private String grauRisco;
 
+    /**
+     * Posição do paciente na fila.
+     */
     @Column(name = "posicao")
     private Integer posicao;
 
+    /**
+     * Prioridade do paciente na fila.
+     */
     @Column(name = "prioridade")
     private Integer prioridade;
+
+    public Fila() {
+    }
+
 }

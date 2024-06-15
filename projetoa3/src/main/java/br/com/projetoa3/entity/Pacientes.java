@@ -1,47 +1,51 @@
 package br.com.projetoa3.entity;
 
-//import br.com.projetoa3.dto.PacientesDTO;
-//import br.com.projetoa3.dto.PacientesRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Builder
-@Data
+/**
+ * Classe que representa a entidade Pacientes no sistema.
+ */
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Pacientes implements Serializable {
+@Table(name = "pacientes")
+@EqualsAndHashCode(of = "id")
+public class Pacientes {
+
+    /** Identificador único do paciente. */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /** Nome do paciente. */
     @Column(name = "nome_do_paciente")
     private String nome;
 
+    /** Idade do paciente. */
     @Column(name = "idade_do_paciente")
     private Integer idade;
 
+    /** Sintomas apresentados pelo paciente. */
     @Column(name = "sintomas_do_paciente")
     private String sintomas;
 
+    /** Data de entrada do paciente no sistema. */
     @Column(name = "data_de_entrada")
     private LocalDateTime dataEntrada;
 
+    /** Data de saída do paciente do sistema. */
     @Column(name = "data_de_saida")
     private LocalDateTime dataSaida;
 
+    /** Medicamentos receitados para o paciente. */
     @Column(name = "remedios_receitados")
     private String remediosReceitados;
 
-
-//    public  Pacientes(PacientesDTO data){
-//        this.nome = data.nome();
-//        this.idade = data.idade();
-//        this.pressao = data.pressao();
-//        this.sintomas = data.sintomas();
-//    }
-
+    /** Grau de risco do paciente. */
+    @Column(name = "grauRisco")
+    private String grauRisco;
 }

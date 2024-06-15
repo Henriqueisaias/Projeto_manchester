@@ -1,48 +1,61 @@
 package br.com.projetoa3.controller;
+
 import br.com.projetoa3.dto.FilaDTO;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
-
-
 import br.com.projetoa3.service.FilaService;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
+/**
+ * Controlador para gerenciar a fila de pacientes.
+ */
+@AllArgsConstructor
 @RestController
 @RequestMapping("/fila")
-@AllArgsConstructor
 public class FilaController {
 
     private final FilaService filaService;
 
+    /**
+     * Recupera a lista de pacientes agrupados por grau de risco.
+     *
+     * @param grauRisco Grau de risco dos pacientes a serem recuperados.
+     * @return Lista de FilaDTO contendo os pacientes do grau de risco especificado.
+     */
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/grauRisco/{grauRisco}")
-    public List<FilaDTO> getPacientesByGrauRisco(@PathVariable String grauRisco) {
+    public List<FilaDTO> getPacientesByGrauRisco(@PathVariable String grauRisco){
         return filaService.getPacientesByGrauRisco(grauRisco);
     }
 
+    /**
+     * Recupera a lista de todos os pacientes na fila.
+     *
+     * @return Lista de FilaDTO contendo todos os pacientes na fila.
+     */
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/all")
     public List<FilaDTO> getAllPacientes() {
         return filaService.getAllPacientes();
     }
 
+    /**
+     * Adiciona um paciente à fila.
+     *
+     * @param filaDTO Dados do paciente a ser adicionado à fila.
+     * @return FilaDTO Dados do paciente após ser adicionado à fila.
+     */
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/add")
     public FilaDTO addPacienteToFila(@RequestBody FilaDTO filaDTO) {
         return filaService.addPacienteToFila(filaDTO.getPacienteId(), filaDTO.getGrauRisco());
     }
 
+    /**
+     * Remove um paciente da fila pelo seu ID.
+     *
+     * @param id ID do paciente a ser removido da fila.
+     */
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/removePacienteFila/{id}")
     public void removePacienteFromFila(@PathVariable Long id) {
