@@ -79,7 +79,7 @@ A API de Pacientes facilita a gestão de informações e priorização de pacien
 Introdução
 O cliente é uma interface gráfica em React para gerenciar pacientes de um pronto-socorro, utilizando o protocolo de Manchester. Ele recebe, exibe e envia dados para a API, além de manter dados de pacientes para consultas futuras.
 
-Pré-requisitos
+### Pré-requisitos
 Node.js: Necessário para acessar os pacotes npm
 Navegador com acesso à internet
 Instalação
@@ -88,46 +88,58 @@ git clone https://github.com/Henriqueisaias/Projeto_manchester.git
 
 Instale as dependências:
 bash
-cd manchester_front
-npm install
+```cd manchester_front ```
+```npm install```
 
-Execute a aplicação:
+### Execute a aplicação:
 npm run dev
 
 Para fazer o deploy:
-npm run build
+```npm run build```
 
-Bibliotecas Principais
+### Bibliotecas Principais
 React-router: Gerencia a navegação entre componentes.
 Axios: Simplifica as requisições à API.
 
-Componentes Principais
+### Componentes Principais
 
-App.jsx: Componente principal com a base dos componentes e implementação do React-Router.
+### App.jsx: 
+Componente principal com a base dos componentes e implementação do React-Router.
 Header.jsx: Links de navegação do React-Router.
 
-FormCadastro.jsx: Formulário para cadastro de pacientes, enviando dados via POST.
+### FormCadastro.jsx:
+Formulário para cadastro de pacientes, enviando dados via POST.
 
-FilaComponent.jsx: Gerencia a fila de pacientes, atualizando os dados via polling a cada 1000 ms.
+### FilaComponent.jsx: 
+Gerencia a fila de pacientes, atualizando os dados via polling a cada 1000 ms.
 
-Lista.jsx: Mapeia e exibe os pacientes na fila.
+### Lista.jsx: 
+Mapeia e exibe os pacientes na fila.
 
-FormMed.jsx: Atualiza e remove pacientes da fila, enviando dados de medicamentos via PUT e DELETE.
+### FormMed.jsx:
+Atualiza e remove pacientes da fila, enviando dados de medicamentos via PUT e DELETE.
 
-PacienteFila.jsx: Exibe os dados dos pacientes na fila com cores baseadas no grau de risco.
+### PacienteFila.jsx:
+Exibe os dados dos pacientes na fila com cores baseadas no grau de risco.
 
-HistoricoComponent.jsx: Gerencia o histórico de pacientes, filtrando dados conforme a busca.
+### HistoricoComponent.jsx:
+Gerencia o histórico de pacientes, filtrando dados conforme a busca.
 
-PacienteHistorico.jsx: Similar ao PacienteFila, mas com dados históricos fixos.
+### PacienteHistorico.jsx:
+Similar ao PacienteFila, mas com dados históricos fixos.
 
-Hooks Principais
-GetRequest: Recebe dados da API.
+### Hooks Principais
+### GetRequest:
+Recebe dados da API.
 
-DeleteRequest: Deleta um paciente da fila.
+### DeleteRequest: 
+Deleta um paciente da fila.
 
-PutRequest: Atualiza o campo de remédios receitados.
+### PutRequest:
+Atualiza o campo de remédios receitados.
 
-PostRequest: Adiciona um paciente à fila e ao histórico.
+### PostRequest:
+Adiciona um paciente à fila e ao histórico.
 
 Conclusão
 O front-end do Projeto de Pacientes fornece uma interface intuitiva para gerenciar informações de pacientes e suas prioridades na fila.
