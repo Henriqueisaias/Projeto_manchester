@@ -80,26 +80,29 @@ Introdução
 O cliente é uma interface gráfica em React para gerenciar pacientes de um pronto-socorro, utilizando o protocolo de Manchester. Ele recebe, exibe e envia dados para a API, além de manter dados de pacientes para consultas futuras.
 
 ### Pré-requisitos
-Node.js: Necessário para acessar os pacotes npm
-Navegador com acesso à internet
+-Node.js: Necessário para acessar os pacotes npm
+-Navegador com acesso à internet
 Instalação
 Clone o repositório:
 git clone https://github.com/Henriqueisaias/Projeto_manchester.git
 
 Instale as dependências:
-bash
-```cd manchester_front ```
-```npm install```
+```bash
+cd manchester_front
+npm install
+```
 
 ### Execute a aplicação:
 npm run dev
 
-Para fazer o deploy:
-```npm run build```
+Construir a aplicação para fazer o deploy:
+```
+npm run build
+```
 
 ### Bibliotecas Principais
-React-router: Gerencia a navegação entre componentes.
-Axios: Simplifica as requisições à API.
+-React-router: Gerencia a navegação entre componentes.
+-Axios: Simplifica as requisições à API.
 
 ### Componentes Principais
 
@@ -141,7 +144,7 @@ Atualiza o campo de remédios receitados.
 ### PostRequest:
 Adiciona um paciente à fila e ao histórico.
 
-Conclusão
+###Conclusão
 O front-end do Projeto de Pacientes fornece uma interface intuitiva para gerenciar informações de pacientes e suas prioridades na fila.
 
 
