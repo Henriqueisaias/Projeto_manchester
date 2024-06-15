@@ -83,17 +83,14 @@ O cliente é uma interface gráfica em React para gerenciar pacientes de um pron
 -Node.js: Necessário para acessar os pacotes npm
 -Navegador com acesso à internet
 
-###Instalação
-Clone o repositório:
-git clone https://github.com/Henriqueisaias/Projeto_manchester.git
 
-Instale as dependências:
+#### Instale as dependências:
 ```bash
-cd manchester_front
+cd front/manchester_front
 npm install
 ```
 
-### Execute a aplicação:
+#### Execute a aplicação:
 ```
 npm run dev
 ```
@@ -102,51 +99,51 @@ Construir a aplicação para fazer o deploy:
 npm run build
 ```
 
-### Bibliotecas Principais
+#### Bibliotecas Principais
 -React-router: Gerencia a navegação entre componentes.
 -Axios: Simplifica as requisições à API.
 
 ### Componentes Principais
 
-### App.jsx: 
+#### App.jsx: 
 Componente principal com a base dos componentes e implementação do React-Router.
 Header.jsx: Links de navegação do React-Router.
 
-### FormCadastro.jsx:
+#### FormCadastro.jsx:
 Formulário para cadastro de pacientes, enviando dados via POST.
 
-### FilaComponent.jsx: 
+#### FilaComponent.jsx: 
 Gerencia a fila de pacientes, atualizando os dados via polling a cada 1000 ms.
 
-### Lista.jsx: 
+#### Lista.jsx: 
 Mapeia e exibe os pacientes na fila.
 
-### FormMed.jsx:
+#### FormMed.jsx:
 Atualiza e remove pacientes da fila, enviando dados de medicamentos via PUT e DELETE.
 
-### PacienteFila.jsx:
+#### PacienteFila.jsx:
 Exibe os dados dos pacientes na fila com cores baseadas no grau de risco.
 
-### HistoricoComponent.jsx:
+#### HistoricoComponent.jsx:
 Gerencia o histórico de pacientes, filtrando dados conforme a busca.
 
-### PacienteHistorico.jsx:
+#### PacienteHistorico.jsx:
 Similar ao PacienteFila, mas com dados históricos fixos.
 
-### Hooks Principais
-### GetRequest:
+## Hooks Principais
+#### GetRequest:
 Recebe dados da API.
 
-### DeleteRequest: 
+#### DeleteRequest: 
 Deleta um paciente da fila.
 
-### PutRequest:
+#### PutRequest:
 Atualiza o campo de remédios receitados.
 
-### PostRequest:
+#### PostRequest:
 Adiciona um paciente à fila e ao histórico.
 
-###Conclusão
+#### Conclusão
 O front-end do Projeto de Pacientes fornece uma interface intuitiva para gerenciar informações de pacientes e suas prioridades na fila.
 
 
