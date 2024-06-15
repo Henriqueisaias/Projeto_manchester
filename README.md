@@ -82,7 +82,8 @@ O cliente é uma interface gráfica em React para gerenciar pacientes de um pron
 ### Pré-requisitos
 -Node.js: Necessário para acessar os pacotes npm
 -Navegador com acesso à internet
-Instalação
+
+###Instalação
 Clone o repositório:
 git clone https://github.com/Henriqueisaias/Projeto_manchester.git
 
@@ -93,8 +94,9 @@ npm install
 ```
 
 ### Execute a aplicação:
+```
 npm run dev
-
+```
 Construir a aplicação para fazer o deploy:
 ```
 npm run build
