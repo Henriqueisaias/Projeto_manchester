@@ -30,10 +30,13 @@ Agora Execute a aplicação:
 ```shell
 ./mvnw spring-boot:run
 ```
+### Tutorial de como Inicializar a aplicação do BACK-END com PostgreSQL
+- https://youtu.be/gq0zZlazQ_U
+
 Configurações da conexão do banco de dado
 Edite application.properties em src/main/resources conforme necessário que estiver na sua database.
 
-### Exemplo de configuração para usar o POSTGREESQL
+### Exemplo de configuração para usar o POSTGRESQL
 
 ```shell
 
@@ -43,6 +46,51 @@ spring.datasource.password=root
 spring.jpa.hibernate.ddl-auto=update
 
 ```
+
+### Exemplo de configuração para usar o H2 - Banco de dados Local
+Edite application.properties em src/main/resources para application.yml
+
+```shell
+
+spring:
+    datasource:
+        url: jdbc:h2:mem:pacientes
+        driverClassName: org.h2.Driver
+        username: sa
+        password:
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        properties.hibernate.show_sql: true
+        properties.hibernate.format_sql: true
+    h2:
+        console:
+            enabled: true
+            path: /h2
+
+        
+```
+E Adicione a dependencia do h2-database
+```shell
+	<dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+		<scope>runtime</scope>
+	</dependency>
+```
+
+Após iniciar a aplicação entre nesse link:
+- http://localhost:8080/h2/login.do?jsessionid=eddb8a89aa7aa6d54ff3d1106e75388c
+
+Coloque as seguintes configurações na página que foi aberta:
+```shell
+JDBC URL:	jdbc:h2:mem:pacientes
+User Name:	
+sa
+```
+
+Caso tenha dúvidas ou problemas para startar a aplicação, mude a branch para a "back-end-H2-new-method-Fila", ela está 100% configurada para usar o H2
+- https://github.com/Henriqueisaias/Projeto_manchester/tree/back-end-H2-new-method-Fila
+
 ### Endpoints Principais
 
 Esses são os endpoints principais da entidade Paciente e Fila.
