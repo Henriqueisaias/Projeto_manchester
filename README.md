@@ -131,10 +131,6 @@ O cliente é uma interface gráfica em React para gerenciar pacientes de um pron
 -Node.js: Necessário para acessar os pacotes npm
 -Navegador com acesso à internet
 
-### Tutorial de como rodar o front-end do projeto:
--https://youtu.be/nSRhxBT35WA
-
-
 #### Instale as dependências:
 ```bash
 cd front/manchester_front
